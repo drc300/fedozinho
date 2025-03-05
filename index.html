@@ -6,7 +6,7 @@
     <title>Para Minha Namorada</title>
     <style>
         body {
-            font-family: "Lucida Console", Monaco, monospace; /* Fonte Lucida Console */
+            font-family: "Lucida Console", Monaco, monospace;
             background-color: #87CEFA;
             text-align: center;
             padding: 20px;
@@ -47,6 +47,10 @@
             audio.muted = false;
             audio.play();
             this.style.display = 'none';
+
+            // Exibe a mensagem após o clique
+            document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
+            document.getElementById('mensagemAmor').style.display = 'block';
         });
 
         function atualizarContador() {
@@ -60,11 +64,6 @@
             const segundos = Math.floor((diferenca / 1000) % 60);
             
             document.getElementById('contador').textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
-
-            setTimeout(function() {
-                document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
-                document.getElementById('mensagemAmor').style.display = 'block';
-            }, 3000);
         }
         
         setInterval(atualizarContador, 1000);
