@@ -6,7 +6,7 @@
     <title>Para Minha Namorada</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Lucida Console", Monaco, monospace; /* Fonte Lucida Console */
             background-color: #87CEFA;
             text-align: center;
             padding: 20px;
@@ -23,7 +23,7 @@
             font-weight: bold;
         }
         img {
-            width: 250px; /* Tamanho aumentado */
+            width: 250px;
             height: auto;
         }
     </style>
@@ -37,6 +37,7 @@
         <h1>Nosso Tempo Juntos ❤️</h1>
         <img src="Stitch.jpg" alt="Stitch">
         <p id="contador"></p>
+        <p id="mensagemAmor" style="display: none;"></p>
         <button id="botaoPlay">Play Music</button>
     </div>
     
@@ -59,6 +60,11 @@
             const segundos = Math.floor((diferenca / 1000) % 60);
             
             document.getElementById('contador').textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
+
+            setTimeout(function() {
+                document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
+                document.getElementById('mensagemAmor').style.display = 'block';
+            }, 3000);
         }
         
         setInterval(atualizarContador, 1000);
