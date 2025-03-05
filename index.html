@@ -10,20 +10,31 @@
     <style>
         body {
             font-family: "Lucida Console", Monaco, monospace;
-            background-image: linear-gradient(to bottom, #87CEFA, pink); /* Gradiente azul para rosa */
+            background-image: linear-gradient(to bottom, #87CEFA, pink);
             text-align: center;
             padding: 20px;
         }
         .container {
-            background: white;
+            background-image: linear-gradient(to right, pink, #87CEFA); /* Gradiente rosa para azul no container */
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: inline-block;
         }
         #contador {
-            font-size: 20px;
+            font-size: 2em;
             font-weight: bold;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        #contador span {
+            margin: 0 5px;
+            transition: color 0.3s ease; /* Transição de cor suave */
+        }
+        #contador span.changing {
+            color: red; /* Cor temporária durante a mudança */
         }
         img {
             width: 250px;
@@ -51,7 +62,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            font-family: 'Dancing Script', cursive; /* Fonte do Google Fonts */
+            font-family: 'Dancing Script', cursive;
         }
     </style>
 </head>
@@ -98,8 +109,21 @@
             const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
             const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
             const segundos = Math.floor((diferenca / 1000) % 60);
-            
-            document.getElementById('contador').textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
+
+            const contadorElement = document.getElementById('contador');
+
+            contadorElement.innerHTML = `
+                <span id="dias">${dias} dias</span>
+                <span id="horas">${horas} horas</span>
+                <span id="minutos">${minutos} minutos</span>
+                <span id="segundos">${segundos} segundos</span>
+            `;
+
+            ['dias', 'horas', 'minutos', 'segundos'].forEach(id => {
+                const element = document.getElementById(id);
+                element.classList.add('changing');
+                setTimeout(() => element.classList.remove('changing'), 300);
+            });
         }
         
         setInterval(atualizarContador, 1000);
