@@ -31,8 +31,9 @@
             display: inline-block;
         }
         #contador span {
-            margin: 0 5px;
+            margin: 5px 0; /* Adicionei margem vertical para espaçamento */
             transition: color 0.3s ease;
+            display: block; /* Cada span em uma linha separada */
         }
         #contador span.changing {
             color: red;
@@ -46,13 +47,13 @@
         #botaoPlay {
             display: block;
             margin: 20px auto;
-            padding: 15px 25px; /* Aumentei o padding */
+            padding: 15px 25px;
             font-size: 1em;
             cursor: pointer;
-            background-image: linear-gradient(to right, pink, #87CEFA); /* Gradiente no fundo */
-            border-radius: 10px; /* Bordas arredondadas */
-            border: none; /* Removi a borda padrão */
-            color: #333; /* Cor do emoji */
+            background-image: linear-gradient(to right, pink, #87CEFA);
+            border-radius: 10px;
+            border: none;
+            color: #333;
         }
         .album-fotos {
             display: flex;
@@ -127,9 +128,9 @@
             const contadorElement = document.getElementById('contador');
 
             contadorElement.innerHTML = `
-                <span id="dias">${dias} dias</span>
-                <span id="horas">${horas} horas</span>
-                <span id="minutos">${minutos} minutos</span>
+                <span id="dias">${dias} dias</span><br>
+                <span id="horas">${horas} horas</span><br>
+                <span id="minutos">${minutos} minutos</span><br>
                 <span id="segundos">${segundos} segundos</span>
             `;
 
