@@ -26,6 +26,18 @@
             width: 250px;
             height: auto;
         }
+        .album-fotos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .album-fotos img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -40,6 +52,15 @@
         <p id="mensagemAmor" style="display: none;"></p>
         <button id="botaoPlay">Play Music</button>
     </div>
+
+    <div class="album-fotos">
+        <img src="album/foto-1.jpg" alt="Foto 1 do álbum">
+        <img src="album/foto-2.jpg" alt="Foto 2 do álbum">
+        <img src="album/foto-3.jpg" alt="Foto 3 do álbum">
+        <img src="album/foto-4.jpg" alt="Foto 4 do álbum">
+        <img src="album/foto-5.jpg" alt="Foto 5 do álbum">
+        <img src="album/foto-6.jpg" alt="Foto 6 do álbum">
+    </div>
     
     <script>
         document.getElementById('botaoPlay').addEventListener('click', function() {
@@ -48,7 +69,6 @@
             audio.play();
             this.style.display = 'none';
 
-            // Exibe a mensagem após o clique
             document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
             document.getElementById('mensagemAmor').style.display = 'block';
         });
