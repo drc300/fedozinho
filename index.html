@@ -36,8 +36,7 @@
         <h1>Nosso Tempo Juntos ❤️</h1>
         <img src="Stitch.jpg" alt="Stitch">
         <p id="contador"></p>
-        <button id="botaoPlay">Play</button>
-        <button id="botaoPause">Pause</button>
+        <button id="botaoPlay">Play Music</button>
     </div>
     
     <script>
@@ -45,13 +44,11 @@
             let audio = document.getElementById('musica');
             audio.muted = false;
             audio.play();
+            this.style.display = 'none';
         });
-        document.getElementById('botaoPause').addEventListener('click', function() {
-            let audio = document.getElementById('musica');
-            audio.pause();
-        });
+
         function atualizarContador() {
-            const dataInicio = new Date('2024-02-27T00:00:00'); // Data de início do namoro
+            const dataInicio = new Date('2024-02-27T00:00:00');
             const agora = new Date();
             const diferenca = agora - dataInicio;
             
