@@ -1,179 +1,105 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>David e Kamila</title>
-
-    <style>
-
-        body {
-
-            font-family: "Lucida Console", Monaco, monospace;
-
-            background-color: #87CEFA;
-
-            text-align: center;
-
-            padding: 20px;
-
-        }
-
-        .container {
-
-            background: white;
-
-            padding: 20px;
-
-            border-radius: 15px;
-
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-
-            display: inline-block;
-
-        }
-
-        #contador {
-
-            font-size: 20px;
-
-            font-weight: bold;
-
-        }
-
-        img {
-
-            width: 250px;
-
-            height: auto;
-
-        }
-
-        .album-fotos {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-
-            margin-top: 20px;
-
-        }
-
-        .album-fotos img {
-
-            width: 200px;
-
-            margin: 10px;
-
-            border-radius: 8px;
-
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-        }
-
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David e Kamila</title>
+    <style>
+        body {
+            font-family: "Lucida Console", Monaco, monospace;
+            background-color: #87CEFA;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+        #contador {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        img {
+            width: 250px;
+            height: auto;
+        }
+        .album-fotos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .album-fotos img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .parallax {
+            padding: 100px 0;
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #333;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
-
 <body>
+    <audio id="musica" loop muted>
+        <source src="MusicFedozinho.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="container">
+        <h1>Nosso Tempo Juntos ❤️</h1>
+        <img src="Stitch.jpg" alt="Stitch">
+        <p id="contador"></p>
+        <p id="mensagemAmor" style="display: none;"></p>
+        <button id="botaoPlay">Play Music</button>
+    </div>
 
-    <audio id="musica" loop muted>
+    <div class="album-fotos">
+        <img src="album/foto-1.jpeg" alt="Foto 1 do álbum">
+        <img src="album/foto-2.jpeg" alt="Foto 2 do álbum">
+        <img src="album/foto-3.jpeg" alt="Foto 3 do álbum">
+    </div>
 
-        <source src="MusicFedozinho.mp3" type="audio/mpeg">
+    <div class="parallax">
+        David & Kamila
+    </div>
+    
+    <script>
+        document.getElementById('botaoPlay').addEventListener('click', function() {
+            let audio = document.getElementById('musica');
+            audio.muted = false;
+            audio.play();
+            this.style.display = 'none';
 
-    </audio>
+            document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
+            document.getElementById('mensagemAmor').style.display = 'block';
+        });
 
-    
-
-    <div class="container">
-
-        <h1>Nosso Tempo Juntos ❤️</h1>
-
-        <img src="Stitch.jpg" alt="Stitch">
-
-        <p id="contador"></p>
-
-        <p id="mensagemAmor" style="display: none;"></p>
-
-        <button id="botaoPlay">Play Music</button>
-
-    </div>
-
-
-
-    <div class="album-fotos">
-
-        <img src="album/foto-1.jpeg" alt="Foto 1 do álbum">
-
-        <img src="album/foto-2.jpeg" alt="Foto 2 do álbum">
-
-        <img src="album/foto-3.jpeg" alt="Foto 3 do álbum">
-
-    </div>
-
-    
-
-    <script>
-
-        document.getElementById('botaoPlay').addEventListener('click', function() {
-
-            let audio = document.getElementById('musica');
-
-            audio.muted = false;
-
-            audio.play();
-
-            this.style.display = 'none';
-
-
-
-            document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
-
-            document.getElementById('mensagemAmor').style.display = 'block';
-
-        });
-
-
-
-        function atualizarContador() {
-
-            const dataInicio = new Date('2024-02-27T00:00:00');
-
-            const agora = new Date();
-
-            const diferenca = agora - dataInicio;
-
-            
-
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-
-            const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-
-            const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-
-            const segundos = Math.floor((diferenca / 1000) % 60);
-
-            
-
-            document.getElementById('contador').textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
-
-        }
-
-        
-
-        setInterval(atualizarContador, 1000);
-
-        atualizarContador();
-
-    </script>
-
+        function atualizarContador() {
+            const dataInicio = new Date('2024-02-27T00:00:00');
+            const agora = new Date();
+            const diferenca = agora - dataInicio;
+            
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+            const segundos = Math.floor((diferenca / 1000) % 60);
+            
+            document.getElementById('contador').textContent = `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos!`;
+        }
+        
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
 </body>
-
 </html>
