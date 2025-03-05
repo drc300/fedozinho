@@ -46,9 +46,13 @@
         #botaoPlay {
             display: block;
             margin: 20px auto;
-            padding: 10px 20px;
+            padding: 15px 25px; /* Aumentei o padding */
             font-size: 1em;
             cursor: pointer;
+            background-image: linear-gradient(to right, pink, #87CEFA); /* Gradiente no fundo */
+            border-radius: 10px; /* Bordas arredondadas */
+            border: none; /* Removi a borda padrão */
+            color: #333; /* Cor do emoji */
         }
         .album-fotos {
             display: flex;
@@ -106,7 +110,7 @@
             audio.play();
             this.style.display = 'none';
 
-            document.getElementById('mensagemAmor').textContent = "Amo você minha princesinha ❤️";
+            document.getElementById('mensagemAmor').textContent = "Amo você fedozinho ❤️";
             document.getElementById('mensagemAmor').style.display = 'block';
         });
 
