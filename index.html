@@ -28,24 +28,28 @@
     </style>
 </head>
 <body>
-    <audio id="musica" autoplay loop muted>
-    <source src="MusicFedozinho.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    window.addEventListener('click', function() {
-        let audio = document.getElementById('musica');
-        audio.muted = false;
-    });
-</script>
+    <audio id="musica" loop muted>
+        <source src="MusicFedozinho.mp3" type="audio/mpeg">
+    </audio>
     
     <div class="container">
         <h1>Nosso Tempo Juntos ❤️</h1>
         <img src="Stitch.jpg" alt="Stitch">
         <p id="contador"></p>
+        <button id="botaoPlay">Play</button>
+        <button id="botaoPause">Pause</button>
     </div>
     
     <script>
+        document.getElementById('botaoPlay').addEventListener('click', function() {
+            let audio = document.getElementById('musica');
+            audio.muted = false;
+            audio.play();
+        });
+        document.getElementById('botaoPause').addEventListener('click', function() {
+            let audio = document.getElementById('musica');
+            audio.pause();
+        });
         function atualizarContador() {
             const dataInicio = new Date('2024-02-27T00:00:00'); // Data de início do namoro
             const agora = new Date();
